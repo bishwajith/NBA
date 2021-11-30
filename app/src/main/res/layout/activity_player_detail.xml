@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="detailViewModel"
+            type="com.example.nba.dashboard.playerdetail.viewmodel.PlayerDetailViewModel" />
+
+        <variable
+            name="playerDetailModel"
+            type="com.example.nba.dashboard.playerdetail.viewmodel.itemstates.PlayerDetailUIModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".dashboard.playerdetail.view.activity.PlayerDetailActivity">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/players_avatar_recyclerview"
+            android:layout_width="@dimen/side_item_width_height"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:itemCount="20"
+            tools:listitem="@layout/item_detail_player_small" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_player_avatar"
+            glideSrc="@{playerDetailModel.avatarUrl}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/players_avatar_recyclerview"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/background_gradient"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/players_avatar_recyclerview"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_player_name"
+            style="@style/PrimaryTextViewStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/default_padding"
+            android:paddingVertical="@dimen/default_padding_small"
+            android:text="@{playerDetailModel.name}"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            app:layout_constraintBottom_toTopOf="@id/tv_player_team_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/players_avatar_recyclerview"
+            tools:text="Bishwajith BN" />
+
+        <TextView
+            android:id="@+id/tv_player_team_name"
+            style="@style/SecondaryTextViewStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/default_padding"
+            android:paddingVertical="@dimen/default_padding_small"
+            android:text="@{playerDetailModel.teamName}"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toTopOf="@id/tv_player_city_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/players_avatar_recyclerview"
+            tools:text="Team US" />
+
+        <TextView
+            android:id="@+id/tv_player_city_name"
+            style="@style/SecondaryTextViewStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/default_padding"
+            android:paddingVertical="@dimen/default_padding_small"
+            android:text="@{playerDetailModel.cityName}"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/players_avatar_recyclerview"
+            tools:text="Boston | CA " />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

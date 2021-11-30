@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="detailViewModel"
+            type="com.example.nba.dashboard.playerdetail.viewmodel.PlayerDetailViewModel" />
+
+        <variable
+            name="playerAvatar"
+            type="com.example.nba.dashboard.playerdetail.viewmodel.itemstates.PlayerAvatarModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> detailViewModel.onSideItemClick(playerAvatar.position)}">
+
+        <ImageView
+            android:id="@+id/iv_player_image"
+            app:glideSrc="@{playerAvatar.avatarUrl}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/background_gradient"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_player_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_player_name"
+            style="@style/TertiaryTextViewStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/default_padding"
+            android:paddingVertical="@dimen/default_padding_small"
+            android:text="@{playerAvatar.name}"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/iv_player_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Bishwajith BN" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

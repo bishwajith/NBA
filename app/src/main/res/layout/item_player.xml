@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.example.nba.dashboard.playerlist.viewmodel.PlayersListViewModel" />
+
+        <variable
+            name="player"
+            type="com.example.nba.dashboard.playerlist.viewmodel.itemstates.PlayerItemUIModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/player_card_radius"
+        app:cardElevation="@dimen/player_card_elevation"
+        app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:onClick="@{() -> viewmodel.onPlayerClick(player.position)}">
+
+            <ImageView
+                android:id="@+id/iv_player_image"
+                glideSrc="@{player.avatarUrl}"
+                android:layout_width="@dimen/avatar_width_height"
+                android:layout_height="@dimen/avatar_width_height"
+                android:contentDescription="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/tv_player_name"
+                style="@style/PrimaryTextViewStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/default_padding"
+                android:paddingVertical="@dimen/default_padding_small"
+                android:text="@{player.name}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_player_image"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Bishwajith BN" />
+
+            <TextView
+                android:id="@+id/tv_player_team_name"
+                style="@style/SecondaryTextViewStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/default_padding"
+                android:paddingVertical="@dimen/default_padding_small"
+                android:text="@{player.teamName}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_player_image"
+                app:layout_constraintTop_toBottomOf="@id/tv_player_name"
+                tools:text="Team US" />
+
+            <TextView
+                android:id="@+id/tv_player_city_name"
+                style="@style/SecondaryTextViewStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/default_padding"
+                android:paddingVertical="@dimen/default_padding_small"
+                android:text="@{player.cityName}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_player_image"
+                app:layout_constraintTop_toBottomOf="@id/tv_player_team_name"
+                tools:text="Boston | CA " />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

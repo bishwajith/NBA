@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">NBA</string>
+    <string name="tab_players">Players</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="something_went_wrong">Something went wrong!</string>
+</resources>

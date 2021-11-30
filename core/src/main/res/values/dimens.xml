@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="progressbar_size">24dp</dimen>
+    <dimen name="default_padding">16dp</dimen>
+    <dimen name="default_padding_small">8dp</dimen>
+
+    <!-- Text size -->
+    <dimen name="textSizePrimary">22sp</dimen>
+    <dimen name="textSizeSecondary">16sp</dimen>
+    <dimen name="textSizeTertiary">12sp</dimen>
+</resources>
